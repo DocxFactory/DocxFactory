@@ -25,4 +25,5 @@ Third Party Acknowledgement
 Microsoft Office and Word are registered trademarks of Microsoft Corporation.
 
 DocxFactory only includes third party components that have a permissive free license.
+
 Please see the separate [third party acknowledgement](https://github.com/docxfactory/docxfactory/blob/master/third-party-acknowlegement.md)
