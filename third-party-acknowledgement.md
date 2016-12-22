@@ -18,7 +18,9 @@ The following documentation notices are required by third party components inclu
 ICU
 ---
 
-DocxFactory includes the ICU version 1.2.0. Such technology is subject to the following terms and conditions:
+DocxFactory includes the [ICU](http://site.icu-project.org/) version 1.2.0.
+
+Such technology is subject to the following terms and conditions:
 
 Copyright © 1991-2014 Unicode, Inc. All rights reserved. Permission is hereby granted, free of charge, to any person
 obtaining a copy of the Unicode data files and any associated documentation (the "Data Files") or Unicode software and
@@ -47,7 +49,9 @@ the sale, use or other dealings in these Data Files or Software without prior wr
 Xerces-C++ XML Parser
 ---------------------
 
-DocxFactory includes the Xerces-C++ XML Parser version 3.1.1. Such technology is subject to the following terms and conditions:
+DocxFactory includes the [Xerces-C++ XML Parser](http://xerces.apache.org/xerces-c/) version 3.1.1.
+
+Such technology is subject to the following terms and conditions:
 
 The Apache Software License, Version 1.1. Copyright (c) 1999. The Apache Software Foundation. All rights reserved.
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following
@@ -86,7 +90,9 @@ For more information on the Apache Software Foundation, please see <http://www.a
 ImageMagick
 -----------
 
-DocxFactory includes ImageMagick version 6.9.1. Such technology is subject to the following terms and conditions:
+DocxFactory includes [ImageMagick](https://www.imagemagick.org/script/index.php) version 6.9.1.
+
+Such technology is subject to the following terms and conditions:
 
 1) Copyright (C) 2003 ImageMagick Studio, a non-profit organization dedicated to making software imaging solutions freely
 available.
@@ -225,8 +231,9 @@ provided in a "licenses" directory.
 ZINT backend (aka ZINT shared library)
 --------------------------------------
 
-DocxFactory includes the ZINT backend (aka ZINT shared library) version 2.4.3. Such technology is subject to the following
-terms and conditions:
+DocxFactory includes the [ZINT](http://www.zint.org.uk/) backend (aka ZINT shared library) version 2.4.3.
+
+Such technology is subject to the following terms and conditions:
 
 Copyright (C) 2008 Robin Stuart <robin@zint.org.uk>
 
