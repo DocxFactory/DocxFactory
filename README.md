@@ -19,6 +19,12 @@ DocxFactory is copyrighted by [Alon Blich](mailto:alonb@docxfactory.com) and lic
 [Apache 2.0 license.](https://www.apache.org/licenses/LICENSE-2.0)
 
 
+History
+-------
+
+Read the [changelog](https://github.com/DocxFactory/DocxFactory/blob/master/CHANGELOG.md)
+
+
 Third Party Acknowledgement
 ---------------------------
 
