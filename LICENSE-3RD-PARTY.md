@@ -1,5 +1,5 @@
-DocxFactory Third Party Acknowledgement
-=======================================
+DocxFactory Third Party / Licenses Acknowledgement
+==================================================
 
 [DocxFactory](https://github.com/docxfactory/docxfactory) only includes third party components that have a permissive free license.
 
