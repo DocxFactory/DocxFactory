@@ -27,8 +27,8 @@ History
 Read the [changelog](https://github.com/DocxFactory/DocxFactory/blob/master/CHANGELOG.md)
 
 
-Third Party Acknowledgement
----------------------------
+Third Party / Licenses Acknowledgement
+--------------------------------------
 
 Microsoft Office and Word are registered trademarks of Microsoft Corporation.
 
