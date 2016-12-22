@@ -11,6 +11,8 @@ and command line tools for generating ([Microsoft Word .DOCX](https://de.wikiped
 
 **DocxFactory Tutorials (PDF):** [http://docxfactory.com/tutorial](http://docxfactory.com/tutorial)
 
+**Download the binaries for your operating system:** [http://docxfactory.com/free-download](http://docxfactory.com/free-download)
+
 
 Author and License
 ------------------
