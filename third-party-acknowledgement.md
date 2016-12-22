@@ -1,7 +1,7 @@
-(DocxFactory)[https://github.com/docxfactory/docxfactory]
-==================
+DocxFactory Third Party Acknowledgement
+=======================================
 
-DocxFactory only includes third party components that have a permissive free license.
+[DocxFactory](https://github.com/docxfactory/docxfactory) only includes third party components that have a permissive free license.
 
 According to Wikipedia, "A permissive free software license is a class of free software license with minimal
 requirements about how the software can be redistributed. Such licenses therefore make no guarantee that future
