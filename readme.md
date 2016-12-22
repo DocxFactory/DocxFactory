@@ -1,6 +1,9 @@
 DocxFactory Project
 ===================
 
+Description
+-----------
+
 [DocxFactory](http://docxfactory.com) is a free, cross platform C/C++ library with C#, Java, Python, Progress 4GL wrappers
 and command line tools for generating ([Microsoft Word .DOCX](https://de.wikipedia.org/wiki/Office_Open_XML)) files (also called Open XML).
 
