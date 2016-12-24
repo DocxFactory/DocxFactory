@@ -11,6 +11,8 @@ and command line tools for generating ([Microsoft Word .DOCX](https://de.wikiped
 
 **DocxFactory Tutorials (PDF):** [http://docxfactory.com/tutorial](http://docxfactory.com/tutorial)
 
+**Download the binaries for your operating system:** [http://docxfactory.com/free-download](http://docxfactory.com/free-download)
+
 
 Author and License
 ------------------
@@ -25,11 +27,11 @@ History
 Read the [changelog](https://github.com/DocxFactory/DocxFactory/blob/master/CHANGELOG.md)
 
 
-Third Party Acknowledgement
----------------------------
+Third Party / Licenses Acknowledgement
+--------------------------------------
 
 Microsoft Office and Word are registered trademarks of Microsoft Corporation.
 
 DocxFactory only includes third party components that have a permissive free license.
 
-Please see the [third party acknowledgement](https://github.com/DocxFactory/DocxFactory/blob/master/third-party-acknowledgement.md)
+Please see the [third party acknowledgement.](https://github.com/DocxFactory/DocxFactory/blob/master/LICENSE-3RD-PARTY.md)
