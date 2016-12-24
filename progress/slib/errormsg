@@ -1,0 +1,183 @@
+
+# (c) Copyright ABC Alon Blich Consulting Tech, Ltd.
+#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# 
+#  Contact information
+#  Email: alonblich@gmail.com
+#  Phone: +972-54-218-8086
+
+
+
+# general purpose errors
+
+# because the generic error is not listed the error message 
+# will not have the "(<error>)" added to the end of the message
+
+# "error"                                   "&1"
+
+"unhandled_error"                           "Unhandled Progress error ""&1"". All expected errors must be converted to thrown exceptions with {err_no-error}. Unhandled errors are not guaranteed to be catched."
+
+
+
+# general errors
+
+"util_failed"                               "Util ""&1"" failed with error code &2."
+
+"dir_not_found"                             "Directory ""&1"" not found."
+"dir_create_failed"                         "Create dir ""&1"" failed."
+"dir_delete_failed"                         "Delete dir ""&1"" failed."
+
+"file_not_found"                            "File ""&1"" not found."
+"file_is_locked"                            "File ""&1"" is locked by another user or process."
+"file_copy_failed"                          "File ""&1"" copy to ""&2" failed."
+"file_rename_failed"                        "File ""&1"" rename to ""&2"" failed."
+"file_delete_failed"                        "File ""&1"" delete failed."
+"file_not_writeable"                        "File ""&1"" is not writeable."
+"file_not_on_local_hard_disk"               "File ""&1"" must be on local hard disk."
+
+"db_disconnect"                             "Database ""&1"" has been disconnected."
+"db_conn_failed"                            "Database ""&1"" connection failed."
+
+
+
+# slibos errors
+
+"os_util_error"                             "Util ""&1"" returned error ""&2""."
+"os_envvar_is_empty"                        "Environment variable ""&1"" is empty."
+"os_insufficient_disk_space"                "Insufficient disk ""&1"" space required &2."
+"os_invalid_fileurl"                        "File URL ""&1"" is invalid."
+
+
+
+# slibpro errors
+
+"pro_unable_to_understand"                  "Unable to understand after ""&1""."
+"pro_unmatched_quote"                       "Unmatched quote found. Unable to understand ""&1""."
+"pro_unclosed_bracket"                      "Unclosed bracket found. Unable to understand ""&1""."
+"pro_unclosed_square_bracket"               "Unclosed square bracket found. Unable to understand ""&1""."
+"pro_closing_bracket_not_expected"          "Closing with no opening bracket found. Unable to understand ""&1""."
+"pro_closing_square_bracket_not_expected"   "Closing with no opening square bracket found. Unable to understand ""&1""."
+"pro_invalid_keyword_separator_exp"         "Invalid keyword separator expression ""&1"". Keyword separator expression syntax [keyword[,separator]][|[keyword[,separator]]..."
+"pro_invalid_param_exp"                     "Invalid param expression ""&1"". Param expression syntax [param=""value""][,param=""value""]..."
+
+
+# slibqry errors
+
+"qry_unable_to_understand"                  "Unable to understand after ""&1""."
+"qry_invalid_extent"                        "Field extent ""&1[&2]"" is invalid."
+"qry_invalid_query"                         "Invalid query handle or type."
+"qry_invalid_buffer"                        "Invalid buffer handle or type."
+"qry_invalid_temp_table"                    "Invalid temp-table handle or type."
+"qry_invalid_format"                        "Invalid format phrase &1 ""&2""."
+"qry_ambiguous_buffer_name"                 "Buffer name ""&1"" is ambiguous."
+"qry_ambiguous_field_name"                  "Field name ""&1"" is ambiguous."
+"qry_field_not_found"                       "Field ""&1"" not found."
+"qry_prepare_string_is_null"                "<QUERY>:PREPARE-STRING = ?. Use <QUERY>:QUERY-PREPARE( ) and <QUERY>:QUERY-OPEN( ) methods."
+"qry_record_not_avail"                      "No record is available in buffer ""&1""."
+
+
+
+# sliblog errors
+
+"log_stream_not_found"                      "Stream ""&1"" not found."
+
+
+
+# slibwin errors
+
+"win_not_supported"                         """&1"" is not supported for the current Windows version."
+"win_silent_pause"                          "Pause found in silent batch."
+
+
+
+# slibz errors
+
+"Z_ERRNO"                                   "zlib compress/uncompress functions error."
+"Z_STREAM_ERROR"                            "zlib compress/uncompress functions error."
+"Z_DATA_ERROR"                              "zlib compress/uncompress functions error."
+"Z_MEM_ERROR"                               "zlib compress/uncompress functions error."
+"Z_BUF_ERROR"                               "zlib compress/uncompress functions error."
+"Z_VERSION_ERROR"                           "zlib compress/uncompress functions error."
+
+
+
+# slibinfozip errors
+
+"infozip_archive_not_exists"                "Archive ""&1"" does not exist."
+"infozip_util_error"                        "Zip util ""&1"" returned error ""&2""."
+
+# slibzip7 errors
+
+"zip7_archive_not_exists"                   "Archive ""&1"" does not exist."
+"zip7_util_error"                           "Zip util ""&1"" returned error ""&2""."
+
+# slibzip errors
+
+"zip_archive_not_exists"                    "Archive ""&1"" does not exist."
+"zip_util_error"                            "Zip util ""&1"" returned error ""&2""."
+
+
+
+# slibhttp errors
+
+"http_invalid_url"                          "URL ""&1"" is invalid."
+"http_invalid_reponse"                      "Invalid HTTP response."
+"http_operation_timedout"                   "Operation timed out."
+
+
+
+# slibweb
+
+"web_program_timeout"                       "Program has timed out."
+"web_session_timeout"                       "Session has timed out."
+"web_login_required"                        "Login required for page ""&1""."
+"web_access_denied"                         "Access denied for page ""&1"" requested by ""&2""."
+
+
+
+# slibxml errors
+
+"xml_invalid_tag_exp"                       "Invalid tag expression ""&1"". Tag expression syntax [xmlns(""namespace-uri""):]tag."
+"xml_invalid_attr_exp"                      "Invalid attr expression ""&1"". Attr expression syntax [xmlns(""namespace-uri""):]attr."
+"xml_invalid_attr_val_exp"                  "Invalid attr value expression ""&1"". Attr value expression syntax [xmlns(""namespace-uri""):]attr=""value"",..."
+"xml_blank_attr"                            "Attribute cannot be blank."
+
+"xml_invalid_xdoc"                          "Must be a valid X-DOCUMENT object."
+"xml_invalid_xnoderef"                      "Must be a valid X-NODEREF object."
+"xml_invalid_xnoderef_ref"                  "Must be a valid X-NODEREF object with a valid node reference."
+"xml_invalid_text_noderef"                  "Invalid text node reference."
+
+"xml_container_eq_cursor"                   "Container and Cursor objects must be two different objects."
+"xml_owner_document_mismatch"               "X-NODEREF objects are referencing nodes in different documents."
+"xml_element_not_found"                     "XML element &1 not found."
+"xml_attribute_not_found"                   "XML attribute &1 not found."
+
+
+
+# sfdc errors
+
+"sfdc_wsdl_file_not_found"                  "WSDL File ""&1"" not found."
+"sfdc_conn_failed"                          "SFDC connection failed."
+
+
+
+# slibimg errors
+
+"img_invalid_gif_file"                      "Invalid .GIF file ""&1""."
+"img_invalid_jpg_file"                      "Invalid .JPG/.JPEG file ""&1""."
+"img_invalid_png_file"                      "Invalid .PNG file ""&1""."
+"img_unsupported_image_type"                "The file ""&1"" must be .GIF,.JPG,.JPEG or .PNG file."
+
+# There must be a newline after the last message for it to be read (due to a known 4GL issue). This comment makes sure the last message is read.

@@ -1,0 +1,95 @@
+
+/**
+ * err_catch -
+ *
+ * (c) Copyright ABC Alon Blich Consulting Tech, Ltd.
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  Contact information
+ *  Email: alonblich@gmail.com
+ *  Phone: +972-54-218-8086
+ */
+
+
+
+&if     "{&err_xBlock7}" <> "" &then &scoped err_xLevel 7
+&elseif "{&err_xBlock6}" <> "" &then &scoped err_xLevel 6
+&elseif "{&err_xBlock5}" <> "" &then &scoped err_xLevel 5
+&elseif "{&err_xBlock4}" <> "" &then &scoped err_xLevel 4
+&elseif "{&err_xBlock3}" <> "" &then &scoped err_xLevel 3
+&elseif "{&err_xBlock2}" <> "" &then &scoped err_xLevel 2
+&elseif "{&err_xBlock1}" <> "" &then &scoped err_xLevel 1
+&endif
+
+        leave {&err_xTry}.
+
+    end. /* do */ 
+
+    {slib/err_throw "'unhandled_error'" "_msg(1)"}.
+
+end. /* try */
+
+assign
+    {&err_xQuit}            = no
+    {&err_xStop}            = no
+    {&err_xError}           = ?
+    {&err_xErrorMsg}        = ?
+    {&err_xStackTrace}      = ?
+    {&err_xReturnValue}     = ?
+    {&err_xReturn}          = no
+    {&err_xReturnError}     = no
+    {&err_xReturnNoApply}   = no.
+
+if err_catchQuit( ) then
+    {&err_xQuit} = yes.
+
+else
+if err_catchStop( ) then
+    {&err_xStop} = yes.
+
+else
+if err_catchReturn( output {&err_xReturnValue} ) then 
+    {&err_xReturn} = yes.
+
+else
+if err_catchReturnError( output {&err_xReturnValue} ) then
+    {&err_xReturnError} = yes.
+
+else
+if err_catchReturnNoApply( ) then
+    {&err_xReturnNoApply} = yes.
+
+else
+if err_catch( 
+    output {&err_xError},
+    output {&err_xErrorMsg},
+    output {&err_xStackTrace} ) then.
+
+if {&err_xError} <> ? then do:
+
+    assign
+        &if "{1}" <> "" &then {1} = {&err_xError}       &endif
+        &if "{2}" <> "" &then {2} = {&err_xErrorMsg}    &endif
+        &if "{3}" <> "" &then {3} = {&err_xStackTrace}  &endif.
+
+    {&err_xTry}:
+
+    do on quit undo, leave
+       on stop undo, leave
+       on endkey undo, leave:
+
+        do on error undo, leave
+
+&global err_xBlock{&err_xLevel} {&err_xBlock{&err_xLevel}},catch

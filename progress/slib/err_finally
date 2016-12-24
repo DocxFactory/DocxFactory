@@ -1,0 +1,174 @@
+
+/**
+ * err_finally -
+ *
+ * (c) Copyright ABC Alon Blich Consulting Tech, Ltd.
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  Contact information
+ *  Email: alonblich@gmail.com
+ *  Phone: +972-54-218-8086
+ */
+
+
+
+&if     "{&err_xBlock7}" <> "" &then &scoped err_xLevel 7
+&elseif "{&err_xBlock6}" <> "" &then &scoped err_xLevel 6
+&elseif "{&err_xBlock5}" <> "" &then &scoped err_xLevel 5
+&elseif "{&err_xBlock4}" <> "" &then &scoped err_xLevel 4
+&elseif "{&err_xBlock3}" <> "" &then &scoped err_xLevel 3
+&elseif "{&err_xBlock2}" <> "" &then &scoped err_xLevel 2
+&elseif "{&err_xBlock1}" <> "" &then &scoped err_xLevel 1
+&endif
+
+
+
+&if "{&err_xBlock{&err_xLevel}}" matches "*try" &then
+
+        leave {&err_xTry}.
+
+    end. /* do */ 
+
+    {slib/err_throw "'unhandled_error'" "_msg(1)"}.
+
+end. /* try */
+
+assign
+    {&err_xQuit}            = no
+    {&err_xStop}            = no
+    {&err_xError}           = ?
+    {&err_xErrorMsg}        = ?
+    {&err_xStackTrace}      = ?
+    {&err_xReturnValue}     = ?
+    {&err_xReturn}          = no
+    {&err_xReturnError}     = no
+    {&err_xReturnNoApply}   = no.
+
+if err_catchQuit( ) then
+    {&err_xQuit} = yes.
+
+else
+if err_catchStop( ) then
+    {&err_xStop} = yes.
+
+else
+if err_catchReturn( output {&err_xReturnValue} ) then 
+    {&err_xReturn} = yes.
+
+else
+if err_catchReturnError( output {&err_xReturnValue} ) then
+    {&err_xReturnError} = yes.
+
+else
+if err_catchReturnNoApply( ) then
+    {&err_xReturnNoApply} = yes.
+
+else
+if err_catch( 
+    output {&err_xError},
+    output {&err_xErrorMsg},
+    output {&err_xStackTrace} ) then.
+
+
+
+&elseif "{&err_xBlock{&err_xLevel}}" matches "*catch" &then
+
+            leave {&err_xTry}.
+
+        end. /* xErrTrap */ 
+
+        {slib/err_throw "'unhandled_error'" "_msg(1)"}.
+
+    end. /* xTry */
+
+    assign
+        {&err_xQuit}            = no
+        {&err_xStop}            = no
+        {&err_xError}           = ?
+        {&err_xErrorMsg}        = ?
+        {&err_xStackTrace}      = ?
+        {&err_xReturnValue}     = ?
+        {&err_xReturn}          = no
+        {&err_xReturnError}     = no
+        {&err_xReturnNoApply}   = no.
+
+    if err_catchQuit( ) then
+        {&err_xQuit} = yes.
+
+    else
+    if err_catchStop( ) then
+        {&err_xStop} = yes.
+
+    else
+    if err_catchReturn( output {&err_xReturnValue} ) then 
+        {&err_xReturn} = yes.
+
+    else
+    if err_catchReturnError( output {&err_xReturnValue} ) then
+        {&err_xReturnError} = yes.
+
+    else
+    if err_catchReturnNoApply( ) then
+        {&err_xReturnNoApply} = yes.
+
+    else
+    if err_catch( 
+        output {&err_xError},
+        output {&err_xErrorMsg},
+        output {&err_xStackTrace} ) then.
+
+end. /* err_catch */
+
+&endif /* matches "*catch" */
+
+
+
+&if defined( err_xError-2 ) = 0 &then
+
+    &global err_xTry-2              err_Try-2~{~&err_xVarSeq~{~&err_xLevel~}~}
+    &global err_xErrTrap-2          err_ErrTrap-2~{~&err_xVarSeq~{~&err_xLevel~}~}
+    &global err_xQuit-2             err_lQuit-2~{~&err_xVarSeq~{~&err_xLevel~}~}
+    &global err_xStop-2             err_lStop-2~{~&err_xVarSeq~{~&err_xLevel~}~}
+    &global err_xError-2            err_cError-2~{~&err_xVarSeq~{~&err_xLevel~}~}
+    &global err_xErrorMsg-2         err_cErrorMsg-2~{~&err_xVarSeq~{~&err_xLevel~}~}
+    &global err_xStackTrace-2       err_cStackTrace-2~{~&err_xVarSeq~{~&err_xLevel~}~}
+    &global err_xReturnValue-2      err_cReturnValue-2~{~&err_xVarSeq~{~&err_xLevel~}~}
+    &global err_xReturn-2           err_lReturn-2~{~&err_xVarSeq~{~&err_xLevel~}~}
+    &global err_xReturnError-2      err_lReturnError-2~{~&err_xVarSeq~{~&err_xLevel~}~}
+    &global err_xReturnNoApply-2    err_lReturnNoApply-2~{~&err_xVarSeq~{~&err_xLevel~}~}
+
+&endif /* defined = 0 */
+
+define var {&err_xQuit-2}           as log no-undo.
+define var {&err_xStop-2}           as log no-undo.
+define var {&err_xError-2}          as char no-undo.
+define var {&err_xErrorMsg-2}       as char no-undo.
+define var {&err_xStackTrace-2}     as char no-undo.
+define var {&err_xReturnValue-2}    as char no-undo.
+define var {&err_xReturn-2}         as log no-undo.
+define var {&err_xReturnError-2}    as log no-undo.
+define var {&err_xReturnNoApply-2}  as log no-undo.
+
+
+
+{&err_xTry-2}:
+
+do on quit undo, leave
+   on stop undo, leave
+   on endkey undo, leave:
+
+    do on error undo, leave
+
+&global err_xBlock{&err_xLevel} {&err_xBlock{&err_xLevel}},finally

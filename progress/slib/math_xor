@@ -1,0 +1,51 @@
+
+/**
+ * math_xor -
+ *
+ * (c) Copyright ABC Alon Blich Consulting Tech, Ltd.
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  Contact information
+ *  Email: alonblich@gmail.com
+ *  Phone: +972-54-218-8086
+ */
+
+
+
+&if     "{7}" <> "" &then
+
+    math_xor( {1}, math_xor( {2}, math_xor( {3}, math_xor( {4}, math_xor( {5}, math_xor( {6}, {7} ) ) ) ) ) )
+
+&elseif "{6}" <> "" &then
+
+    math_xor( {1}, math_xor( {2}, math_xor( {3}, math_xor( {4}, math_xor( {5}, {6} ) ) ) ) )
+
+&elseif "{5}" <> "" &then
+
+    math_xor( {1}, math_xor( {2}, math_xor( {3}, math_xor( {4}, {5} ) ) ) )
+
+&elseif "{4}" <> "" &then
+
+    math_xor( {1}, math_xor( {2}, math_xor( {3}, {4} ) ) )
+
+&elseif "{3}" <> "" &then
+
+    math_xor( {1}, math_xor( {2}, {3} ) )
+
+&else
+
+    math_xor( {1}, {2} )
+
+&endif

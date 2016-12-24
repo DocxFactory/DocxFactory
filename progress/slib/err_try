@@ -1,0 +1,84 @@
+
+/**
+ * err_try -
+ *
+ * (c) Copyright ABC Alon Blich Consulting Tech, Ltd.
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  Contact information
+ *  Email: alonblich@gmail.com
+ *  Phone: +972-54-218-8086
+ */
+
+
+
+&if     "{&err_xBlock1}" = "" &then &scoped err_xLevel 1
+&elseif "{&err_xBlock2}" = "" &then &scoped err_xLevel 2
+&elseif "{&err_xBlock3}" = "" &then &scoped err_xLevel 3
+&elseif "{&err_xBlock4}" = "" &then &scoped err_xLevel 4
+&elseif "{&err_xBlock5}" = "" &then &scoped err_xLevel 5
+&elseif "{&err_xBlock6}" = "" &then &scoped err_xLevel 6
+&elseif "{&err_xBlock7}" = "" &then &scoped err_xLevel 7
+&endif
+
+
+
+/***
+&global err_xReturnError{&err_xLevel}   no
+&global err_xReturnNoApply{&err_xLevel} no
+***/
+
+&global err_xVarSeq{&err_xLevel}        {&sequence}
+
+&if defined( err_xError ) = 0 &then
+
+    &global err_xTry            err_Try~{~&err_xVarSeq~{~&err_xLevel~}~}
+    &global err_xQuit           err_lQuit~{~&err_xVarSeq~{~&err_xLevel~}~}
+    &global err_xStop           err_lStop~{~&err_xVarSeq~{~&err_xLevel~}~}
+    &global err_xError          err_cError~{~&err_xVarSeq~{~&err_xLevel~}~}
+    &global err_xErrorMsg       err_cErrorMsg~{~&err_xVarSeq~{~&err_xLevel~}~}
+    &global err_xStackTrace     err_cStackTrace~{~&err_xVarSeq~{~&err_xLevel~}~}
+    &global err_xReturnValue    err_cReturnValue~{~&err_xVarSeq~{~&err_xLevel~}~}
+    &global err_xReturn         err_lReturn~{~&err_xVarSeq~{~&err_xLevel~}~}
+    &global err_xReturnError    err_lReturnError~{~&err_xVarSeq~{~&err_xLevel~}~}
+    &global err_xReturnNoApply  err_lReturnNoApply~{~&err_xVarSeq~{~&err_xLevel~}~}
+
+&endif /* defined = 0 */
+
+do: /* main do block */
+
+    define var {&err_xQuit}             as log no-undo.
+    define var {&err_xStop}             as log no-undo.
+    define var {&err_xError}            as char no-undo.
+    define var {&err_xErrorMsg}         as char no-undo.
+    define var {&err_xStackTrace}       as char no-undo.
+    define var {&err_xReturnValue}      as char no-undo.
+    define var {&err_xReturn}           as log no-undo.
+    define var {&err_xReturnError}      as log no-undo.
+    define var {&err_xReturnNoApply}    as log no-undo.
+
+
+
+    run err_try.
+
+    {&err_xTry}:
+
+    do on quit undo, leave
+       on stop undo, leave
+       on endkey undo, leave:
+
+        do on error undo, leave
+
+&global err_xBlock{&err_xLevel} try

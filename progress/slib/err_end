@@ -1,0 +1,302 @@
+
+/**
+ * err_end -
+ *
+ * (c) Copyright ABC Alon Blich Consulting Tech, Ltd.
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  Contact information
+ *  Email: alonblich@gmail.com
+ *  Phone: +972-54-218-8086
+ */
+
+
+
+&if     "{&err_xBlock7}" <> "" &then &scoped err_xLevel 7
+&elseif "{&err_xBlock6}" <> "" &then &scoped err_xLevel 6
+&elseif "{&err_xBlock5}" <> "" &then &scoped err_xLevel 5
+&elseif "{&err_xBlock4}" <> "" &then &scoped err_xLevel 4
+&elseif "{&err_xBlock3}" <> "" &then &scoped err_xLevel 3
+&elseif "{&err_xBlock2}" <> "" &then &scoped err_xLevel 2
+&elseif "{&err_xBlock1}" <> "" &then &scoped err_xLevel 1
+&endif
+
+
+
+&if "{&err_xBlock{&err_xLevel}}" matches "*try" &then
+
+        leave {&err_xTry}.
+
+    end. /* do */ 
+
+    {slib/err_throw "'unhandled_error'" "_msg(1)"}.
+
+end. /* try */
+
+assign
+    {&err_xQuit}            = no
+    {&err_xStop}            = no
+    {&err_xError}           = ?
+    {&err_xErrorMsg}        = ?
+    {&err_xStackTrace}      = ?
+    {&err_xReturnValue}     = ?
+    {&err_xReturn}          = no
+    {&err_xReturnError}     = no
+    {&err_xReturnNoApply}   = no.
+
+if err_catchQuit( ) then
+    {&err_xQuit} = yes.
+
+else
+if err_catchStop( ) then
+    {&err_xStop} = yes.
+
+else
+if err_catchReturn( output {&err_xReturnValue} ) then 
+    {&err_xReturn} = yes.
+
+else
+if err_catchReturnError( output {&err_xReturnValue} ) then
+    {&err_xReturnError} = yes.
+
+else
+if err_catchReturnNoApply( ) then
+    {&err_xReturnNoApply} = yes.
+
+else
+if err_catch( 
+    output {&err_xError},
+    output {&err_xErrorMsg},
+    output {&err_xStackTrace} ) then.
+
+
+
+&elseif "{&err_xBlock{&err_xLevel}}" matches "*catch" &then
+
+            leave {&err_xTry}.
+
+        end. /* do */ 
+
+        {slib/err_throw "'unhandled_error'" "_msg(1)"}.
+
+    end. /* do */
+
+    assign
+        {&err_xQuit}            = no
+        {&err_xStop}            = no
+        {&err_xError}           = ?
+        {&err_xErrorMsg}        = ?
+        {&err_xStackTrace}      = ?
+        {&err_xReturnValue}     = ?
+        {&err_xReturn}          = no
+        {&err_xReturnError}     = no
+        {&err_xReturnNoApply}   = no.
+
+    if err_catchQuit( ) then
+        {&err_xQuit} = yes.
+
+    else
+    if err_catchStop( ) then
+        {&err_xStop} = yes.
+
+    else
+    if err_catchReturn( output {&err_xReturnValue} ) then 
+        {&err_xReturn} = yes.
+
+    else
+    if err_catchReturnError( output {&err_xReturnValue} ) then
+        {&err_xReturnError} = yes.
+
+    else
+    if err_catchReturnNoApply( ) then
+        {&err_xReturnNoApply} = yes.
+
+    else
+    if err_catch( 
+        output {&err_xError},
+        output {&err_xErrorMsg},
+        output {&err_xStackTrace} ) then.
+
+end. /* err_catch */
+
+
+
+&elseif "{&err_xBlock{&err_xLevel}}" matches "*finally" &then
+
+        leave {&err_xTry-2}.
+
+    end. /* do */ 
+
+    {slib/err_throw "'unhandled_error'" "_msg(1)"}.
+
+end. /* try */
+
+assign
+    {&err_xQuit-2}          = no
+    {&err_xStop-2}          = no
+    {&err_xError-2}         = ?
+    {&err_xErrorMsg-2}      = ?
+    {&err_xStackTrace-2}    = ?
+    {&err_xReturnValue-2}   = ?
+    {&err_xReturn-2}        = no
+    {&err_xReturnError-2}   = no
+    {&err_xReturnNoApply-2} = no.
+
+if err_catchQuit( ) then
+    {&err_xQuit-2} = yes.
+
+else
+if err_catchStop( ) then
+    {&err_xStop-2} = yes.
+
+else
+if err_catchReturn( output {&err_xReturnValue-2} ) then 
+    {&err_xReturn-2} = yes.
+
+else
+if err_catchReturnError( output {&err_xReturnValue-2} ) then
+    {&err_xReturnError-2} = yes.
+
+else
+if err_catchReturnNoApply( ) then
+    {&err_xReturnNoApply-2} = yes.
+
+else
+if err_catch( 
+    output {&err_xError-2},
+    output {&err_xErrorMsg-2},
+    output {&err_xStackTrace-2} ) then.
+
+&endif
+
+
+
+&if lookup( "catch", "{&err_xBlock{&err_xLevel}}" ) > 0 &then
+
+if {&err_xError} <> ? then
+
+    err_throwExact( {&err_xError}, {&err_xErrorMsg}, {&err_xStackTrace} ).
+
+&endif /* lookup( "catch" ) > 0 */
+
+if {&err_xQuit} then
+    err_quit( ).
+
+if {&err_xStop} then
+    err_stop( ).
+
+if {&err_xReturn} then
+
+    &if {&err_xLevel} > 1 &then
+        err_return( {&err_xReturnValue} ).
+    &else
+        return dynamic-function( "err_returnDyn", {&err_xReturnValue} ).
+    &endif
+
+/***
+&if {&err_xReturnError{&err_xLevel}} &then
+***/
+
+    if {&err_xReturnError} then
+
+        &if {&err_xLevel} > 1 &then 
+            err_returnError( {&err_xReturnValue} ). 
+        &else 
+            return error dynamic-function( "err_returnDyn", {&err_xReturnValue} ).
+        &endif
+
+/***
+&endif /* lReturnError */
+
+&if {&err_xReturnNoApply{&err_xLevel}} &then
+***/
+
+    if {&err_xReturnNoApply} then
+
+        &if {&err_xLevel} > 1 &then
+            err_returnNoApply( ).
+        &else
+            return no-apply.
+        &endif
+
+/***
+&endif /* lReturnNoApply */
+***/
+
+
+
+&if lookup( "finally", "{&err_xBlock{&err_xLevel}}" ) > 0 &then
+
+    if {&err_xQuit-2} then
+        err_quit( ).
+
+    if {&err_xStop-2} then
+        err_stop( ).
+
+    if {&err_xError-2} <> ? then
+
+        err_throwExact( {&err_xError-2}, {&err_xErrorMsg-2}, {&err_xStackTrace-2} ).
+
+    if {&err_xReturn-2} then
+
+        &if {&err_xLevel} > 1 &then
+            err_return( {&err_xReturnValue-2} ).
+        &else
+            return dynamic-function( "err_returnDyn", {&err_xReturnValue-2} ).
+        &endif
+
+    /***
+    &if {&err_xReturnError{&err_xLevel}} &then
+    ***/
+
+        if {&err_xReturnError-2} then
+
+            &if {&err_xLevel} > 1 &then 
+                err_returnError( {&err_xReturnValue-2} ). 
+            &else 
+                return error dynamic-function( "err_returnDyn", {&err_xReturnValue-2} ).
+            &endif
+
+    /***
+    &endif /* lReturnError */
+
+    &if {&err_xReturnNoApply{&err_xLevel}} &then
+    ***/
+
+        if {&err_xReturnNoApply-2} then
+
+            &if {&err_xLevel} > 1 &then
+                err_returnNoApply( ).
+            &else
+                return no-apply.
+            &endif
+
+    /***
+    &endif /* lReturnNoApply */
+    ***/
+
+&endif /* lookup( "finally" ) > 0 */
+
+end /* main do block */
+
+
+
+/***
+&undefine err_xReturnError{&err_xLevel}
+&undefine err_xReturnNoApply{&err_xLevel}
+***/
+
+&undefine err_xVarSeq{&err_xLevel}
+&undefine err_xBlock{&err_xLevel}

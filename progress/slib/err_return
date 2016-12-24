@@ -1,0 +1,70 @@
+
+/**
+ * err_return -
+ *
+ * (c) Copyright ABC Alon Blich Consulting Tech, Ltd.
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  Contact information
+ *  Email: alonblich@gmail.com
+ *  Phone: +972-54-218-8086
+ */
+
+
+
+&if     "{&err_xBlock7}" <> "" &then &scoped err_xLevel 7
+&elseif "{&err_xBlock6}" <> "" &then &scoped err_xLevel 6
+&elseif "{&err_xBlock5}" <> "" &then &scoped err_xLevel 5
+&elseif "{&err_xBlock4}" <> "" &then &scoped err_xLevel 4
+&elseif "{&err_xBlock3}" <> "" &then &scoped err_xLevel 3
+&elseif "{&err_xBlock2}" <> "" &then &scoped err_xLevel 2
+&elseif "{&err_xBlock1}" <> "" &then &scoped err_xLevel 1
+&endif
+
+
+
+&if "{1}" = "error" &then
+
+    /***
+    &global err_xReturnError{&err_xLevel} yes
+    ***/
+
+    &if "{2}" = "" &then
+
+        err_returnError( "" )
+
+    &else
+
+        err_returnError( {2} )
+
+    &endif
+
+&elseif "{1}" = "no-apply" &then
+
+    /***
+    &global err_xReturnNoApply{&err_xLevel} yes
+    ***/
+
+    err_returnNoApply( )
+
+&elseif "{1}" = "" &then
+
+    err_return( "" )
+
+&else
+
+    err_return( string( {1} ) )
+
+&endif /* {1} = return or no-apply */

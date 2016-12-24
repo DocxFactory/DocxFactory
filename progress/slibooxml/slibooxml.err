@@ -1,0 +1,91 @@
+
+# slibooxml errors
+
+"ooxml_content_type_not_found"              "Content Type ""&1"" not found."
+"ooxml_relationship_not_found"              "Relationship ""&1"" for part ""&2"" not found."
+"ooxml_unsupported_image_type"              "Image ""&1"" must be .JPG,.JPEG or .PNG file."
+
+"ooxml_openoffice_load_failed"              "OpenOffice load failed."
+"ooxml_invalid_option_table"                "Invalid option temp-table. Use DEFINE TEMP-TABLE <temp-table-name> LIKE ooxml_ttOption."
+"ooxml_convert_print_util_not_found"        "No convert print util found."
+"ooxml_import_format_not_supported"         "Document import format ""&1"" not supported."
+"ooxml_export_format_not_supported"         "Document export format ""&1"" not supported."
+"ooxml_conversion_not_supported"            "Document conversion for ""&1"" to ""&2"" not supported."
+"ooxml_conversion_failed"                   "Document conversion for ""&1"" to ""&2"" failed."
+"ooxml_print_failed"                        "Document print ""&1"" to ""&2"" failed."
+
+
+
+# slibxlsx errors
+
+"xlsx_stream_not_specified"                 "Must specify a stream name."
+"xlsx_stream_not_found"                     "Stream ""&1"" not found."
+"xlsx_stream_already_exists"                "Stream ""&1"" already exists."
+"xlsx_sheet_not_found"                      "Sheet ""&1"" not found."
+"xlsx_defined_name_not_found"               "Defined name ""&1"" not found."
+"xlsx_defined_name_not_range_ref"           "Defined name ""&1"" is not a range ref."
+
+"xlsx_invalid_range"                        "Invalid range ""&1""."
+"xlsx_invalid_row_range"                    "Invalid row range ""&1""."
+"xlsx_invalid_col_range"                    "Invalid column range ""&1""."
+"xlsx_invalid_row_ref"                      "Invalid row reference ""&1""."
+"xlsx_invalid_col_ref"                      "Invalid column reference ""&1""."
+"xlsx_invalid_cell_ref"                     "Invalid cell reference ""&1""."
+"xlsx_invalid_border_style"                 "Invalid border style ""&1"". Valid values are ""dashDot,dashDotDot,dashed,delete,dotted,double,hair,medium,mediumDashDot,mediumDashDotDot,mediumDashed,none,slantDashDot,thick,thin"" or ?."
+"xlsx_invalid_rgb_value"                    "Invalid RGB value ""&1"". RGB value must be a 6 digit hex value or ""delete"" or ?."
+"xlsx_invalid_horiz_align"                  "Invalid horizontal alignment value ""&1"". Valid values are ""center,centerContinuous,delete,distributed,fill,general,justify,left,right"" or ?."
+"xlsx_invalid_vert_align"                   "Invalid vertical alignment value ""&1"". Valid values are ""bottom,center,delete,distributed,justify,top"" or ?."
+"xlsx_invalid_wrap_text"                    "Invalid wrap text value ""&1"". Valid values are ""delete,true,false,yes,no,expand"" or ?."
+"xlsx_invalid_row_height"                   "Invalid row height ""&1""."
+"xlsx_invalid_col_width"                    "Invalid column width ""&1""."
+"xlsx_ref_outside_of_sheet"                 "Reference ""&1"" is outside of sheet dimension."
+
+"xlsx_invalid_field_mapping"                "Field mapping is invalid ""&1"". Syntax ""<mamed range>=<buffer field>,...""."
+"xlsx_unsupported_field_datatype"           "Unsupported field datatype ""&1""."
+
+"xlsx_sheet_already_exists"                 "Sheet ""&1"" already exists."
+"xlsx_clipboard_item_already_exists"        "Clipboard item ""&1"" already exists."
+"xlsx_clipboard_item_not_found"             "Clipboard item ""&1"" not found."
+"xlsx_buffer_alread_exists"                 "Buffer ""&1"" exists in multiple datasources."
+"xlsx_fieldname_already_exists"             "Field name ""&1"" already exists."
+"xlsx_invalid_excel_datatype"               "Invalid clipboard field datatype ""&1"". Datatype must be text, number, date or datetime."
+"xlsx_invalid_spread_table"                 "Invalid ttSpread temp-table. Use DEFINE TEMP-TABLE ttSpread LIKE xlsx_ttSpread."
+"xlsx_invalid_spread_record"                "Invalid ttSpread record ""&1"" ""&2"" ""&3""."
+"xlsx_invalid_calc_field_name"              "Invalid calculated field name ""&1"". ""."" not allowed in calculated field names."
+"xlsx_invalid_datasource"                   "Invalid data source. Valid data sources are buffer handle, query handle, temp-table handle or dataset handle."
+"xlsx_invalid_meta_record"                  "Invalid meta record ""&1"" ""&2"" ""&3""."
+"xlsx_calc_field_already_exists"            "Calculated field ""&1"" already exists."
+"xlsx_calc_field_query_mismatch"            "Calculated field ""&1"" cannot reference fields from different queries."
+"xlsx_calc_cyclic_dependencies"             "Calc meta record contains cyclic dependencies."
+
+"xlsx_row_limit"                            "Row ""&1"" is over the Excel ""&2"" row limit."
+"xlsx_col_limit"                            "Column ""&1"" is over the Excel ""&2"" column limit."
+"xlsx_page_break_limit"                     "Sheet ""&1"" has reached the Excel ""&2"" page break limit."
+
+"xlsx_unmatched_quote"                      "Unmatched quote found. Unable to understand ""&1""."
+"xlsx_unclosed_bracket"                     "Unclosed bracket found. Unable to understand ""&1""."
+"xlsx_unclosed_square_bracket"              "Unclosed square bracket found. Unable to understand ""&1""."
+"xlsx_closing_bracket_not_expected"         "Closing with no opening bracket found. Unable to understand ""&1""."
+"xlsx_closing_square_bracket_not_expected"  "Closing with no opening square bracket found. Unable to understand ""&1""."
+"xlsx_invalid_param_exp"                    "Invalid param expression ""&1"". Param expression syntax [param=""value""][,param=""value""]..."
+
+
+
+# slibdocx errors
+
+"docx_cannot_paste_header_footer"           "Cannot paste header/footer ""&1"" part."
+"docx_invalid_date_format"                  "The date format ""&1"" is invalid. Typical values include ""mdy"", ""dmy"" and ? for the system default."
+"docx_invalid_numeric_format"               "The numeric format ""&1"" is invalid. Valid numeric format value are ""American"", ""Eurpean"" and ? for the system default."
+"docx_invalid_clipboard_datatype"           "Invalid clipboard field datatype ""&1"". Datatype must be text,number or date."
+
+"docx_invalid_query"                        "Invalid query handle or type."
+"docx_invalid_field_mapping"                "Field mapping is invalid ""&1"". Syntax ""<user field>=<buffer field>,...""."
+"docx_invalid_field_table"                  "Invalid field temp-table. Use DEFINE TEMP-TABLE <temp-table-name> LIKE docx_ttField."
+"docx_invalid_part_table"                   "Invalid part temp-table. Use DEFINE TEMP-TABLE <temp-table-name> LIKE docx_ttPart."
+"docx_detail_table_not_found"               "Detail fields word table not found."
+"docx_unsupported_field_datatype"           "Unsupported field datatype ""&1""."
+
+"docx_clipboard_initialized"                "Commands like changing fields datatype and format cannot be done after clipboard has been initialized by commands like set value and paste."
+"docx_altchunk_field_change"                "Cannot change RTF or HTML field ""&1"" datatype or format."
+
+# There must be a newline after the last message for it to be read (due to a known 4GL issue). This comment makes sure the last message is read.
