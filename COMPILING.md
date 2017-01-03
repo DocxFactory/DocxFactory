@@ -1,7 +1,7 @@
 DocxFactory compilation instructions
 ====================================
 
-Please note: This documentation is currently still in the process being written! Please check again later.
+Please note: This documentation is currently still in the process of being written! Please check again later.
 
 
 Third Party Dependencies Installation
