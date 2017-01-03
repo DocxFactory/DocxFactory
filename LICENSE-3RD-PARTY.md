@@ -12,11 +12,19 @@ unmodified), permissive licenses permit the redistributor to restrict access to 
 licenses do not allow this restriction.". The third party components included in DocxFactory are standard components
 widely used in commercial products.
 
+
+Used third party components
+---------------------------
+
+* [ICU](http://site.icu-project.org/) version 1.2.0.
+* [Xerces-C++ XML Parser](http://xerces.apache.org/xerces-c/) version 3.1.1.
+* [ImageMagick](https://www.imagemagick.org/script/index.php) version 6.9.1.
+* [ZINT](http://www.zint.org.uk/) backend (aka ZINT shared library) version 2.4.3.
+
 The following documentation notices are required by third party components included in DocxFactory:
 
 
-ICU
----
+### ICU
 
 DocxFactory includes the [ICU](http://site.icu-project.org/) version 1.2.0.
 
@@ -46,8 +54,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 
 
-Xerces-C++ XML Parser
----------------------
+### Xerces-C++ XML Parser
 
 DocxFactory includes the [Xerces-C++ XML Parser](http://xerces.apache.org/xerces-c/) version 3.1.1.
 
@@ -87,8 +94,7 @@ and was originally based on software copyright (c) 1999, International Business 
 For more information on the Apache Software Foundation, please see <http://www.apache.org/>.
 
 
-ImageMagick
------------
+### ImageMagick
 
 DocxFactory includes [ImageMagick](https://www.imagemagick.org/script/index.php) version 6.9.1.
 
@@ -124,8 +130,7 @@ Windows IMDisplay
 Windows ATL COM
 
 
-Windows ATL7 COM
-----------------
+### Windows ATL7 COM
 
 In addition the Windows distrbution of ImageMagick includes this new program:
 
@@ -228,8 +233,7 @@ when ImageMagick is bundled with (or compiled with) "delegate" libraries, a copy
 provided in a "licenses" directory.
 
 
-ZINT backend (aka ZINT shared library)
---------------------------------------
+### ZINT backend (aka ZINT shared library)
 
 DocxFactory includes the [ZINT](http://www.zint.org.uk/) backend (aka ZINT shared library) version 2.4.3.
 
@@ -256,4 +260,3 @@ OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITU
 OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
-
