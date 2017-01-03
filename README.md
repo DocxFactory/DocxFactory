@@ -14,10 +14,10 @@ and command line tools for generating ([Microsoft Word .DOCX](https://de.wikiped
 **Download the binaries for your operating system:** [http://docxfactory.com/free-download](http://docxfactory.com/free-download)
 
 
-Compiling / Creating SWIG Wrappers
-----------------------------------
+Compiling DocxFactory and high-level language wrappers
+------------------------------------------------------
 
-Read the [compilation and SWIG wrapper creation instructions](https://github.com/DocxFactory/DocxFactory/blob/master/COMPILING.md)
+Read the [compilation instructions](https://github.com/DocxFactory/DocxFactory/blob/master/COMPILING.md)
 
 
 History
