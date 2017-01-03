@@ -14,17 +14,23 @@ and command line tools for generating ([Microsoft Word .DOCX](https://de.wikiped
 **Download the binaries for your operating system:** [http://docxfactory.com/free-download](http://docxfactory.com/free-download)
 
 
-Author and License
-------------------
+Compiling / Creating SWIG Wrappers
+----------------------------------
 
-DocxFactory is copyrighted by [Alon Blich](mailto:alonb@docxfactory.com) and licensed under the
-[Apache 2.0 license.](https://www.apache.org/licenses/LICENSE-2.0)
+Read the [compilation and SWIG wrapper creation instructions](https://github.com/DocxFactory/DocxFactory/blob/master/COMPILING.md)
 
 
 History
 -------
 
 Read the [changelog](https://github.com/DocxFactory/DocxFactory/blob/master/CHANGELOG.md)
+
+
+Author and License
+------------------
+
+DocxFactory is copyrighted by [Alon Blich](mailto:alonb@docxfactory.com) and licensed under the
+[Apache 2.0 license.](https://www.apache.org/licenses/LICENSE-2.0)
 
 
 Third Party / Licenses Acknowledgement
