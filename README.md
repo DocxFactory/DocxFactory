@@ -13,6 +13,7 @@ and command line tools for generating ([Microsoft Word .DOCX](https://de.wikiped
 
 **Download the binaries for your operating system:** [http://docxfactory.com/free-download](http://docxfactory.com/free-download)
 
+**Installation:** For information on how to install DocxFactory on your operating system, see the Installation chapter included in all of the tutorials.
 
 Compiling DocxFactory and high-level language wrappers
 ------------------------------------------------------
